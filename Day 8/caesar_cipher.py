@@ -41,10 +41,7 @@ def encoder(plaintext, shift_value):
     for letter in plaintext.lower():
         alphabet_position = alphabets.find(letter)
         encoding_position = alphabet_position + shift_value
-        if encoding_position <= 26:
-            encoded.append(alphabets[encoding_position])
-        else:
-            encoded.append(alphabets[(encoding_position%26)])
+        encoded.append(alphabets[(encoding_position%26)])
     return ''.join(encoded)
 
 
