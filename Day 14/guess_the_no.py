@@ -13,7 +13,7 @@
 #user: 25
 #> Wrong. The answer is less than 25.
 #user: 14
-#> Wrong.The aanswer is greater than 14.
+#> Wrong.The answer is greater than 14.
 #user: 15
 #> Correct! You got the right answer in 3 tries.
 
@@ -22,8 +22,8 @@ import random
 def guess():
     while True:
         try:
-            user_pick = int(input('Enter an integer between 0 and 100: '))
-            if user_pick < 0 or user_pick > 100:
+            user_pick = int(input('Enter an integer between 1 and 50: '))
+            if user_pick < 1 or user_pick > 50:
                 print('The number must be between 0 and 100.\n')
                 continue
         except ValueError:
@@ -33,7 +33,7 @@ def guess():
     return user_pick
 
 def main():
-    the_number = random.randint(0, 100)
+    the_number = random.randint(1, 50)
     user_pick = guess()
     no_of_trials = 0
     for tries in range(4):
