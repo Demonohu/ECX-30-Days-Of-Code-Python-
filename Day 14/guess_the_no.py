@@ -20,16 +20,16 @@
 import random
 
 def guess():
-    while True:
+    isValid = False
+    while not isValid:
         try:
             user_pick = int(input('Enter an integer between 1 and 50: '))
-            if user_pick < 1 or user_pick > 50:
+            if 1 <= user_pick <= 50:
+                isValid = True
+            else:
                 print('The number must be between 0 and 100.\n')
-                continue
         except ValueError:
             print('Number must be in figures not letters.\n')
-            continue
-        break
     return user_pick
 
 def main():
