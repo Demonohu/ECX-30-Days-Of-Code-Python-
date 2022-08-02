@@ -38,23 +38,23 @@ def countdown(t):
 
         
 if __name__ == '__main__':
-    isValid = True
-    while isValid:
+    isValid = False
+    while not isValid:
         print('Time entered should have unit.(s/m/h) e.g; 5m/7h/9s')
         time_given = input('Enter the time to be counted down: ')
         if time_given[-1:].lower() == 'm' or time_given[-1:].lower() == 'h' or time_given[-1:].lower() == 's':
             try:
                 countdown(time_given)
-                break
+                isValid = True
             except Exception:
                 print('Something is wrong')
                 again = input('Do you want to try again?(yes/no)')
                 if again.lower == 'yes' or again.lower() == 'y':
-                    break
+                    isValid = True
                 else:
                     print()
-                    continue
+                    isValid = False
             
         else:
             print()
-            continue
+            isValid = False

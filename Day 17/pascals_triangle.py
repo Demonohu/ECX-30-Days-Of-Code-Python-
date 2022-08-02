@@ -26,13 +26,15 @@ def pascal_triangle(n):
 
 
 if __name__ == '__main__':
-    isValid = True
-    while isValid:
+    isValid = False
+    while not isValid:
         try:
             print('Abeg try to not enter a number greater than 20. Your choice sha.')
             n = int(input('How many rows of the Pascal triangle do you want to print: '))
-            break
+            pascal_triangle(n)
+            isValid = True
         except ValueError:
-            print('\n Enter an integer.')
-            continue
-    pascal_triangle(n)
+            print('\nEnter an integer.')
+            isValid = False
+    
+    

@@ -15,37 +15,37 @@ def day_of_the_week(day, month, year):
     print(week_day)
 
 if __name__ == '__main__':
-    isValid = True
-    while isValid:
+    isValid = False
+    while not isValid:
         try:
             print('For the date, enter the month and day in double figures; and the year in quadruple figures.')
-            while isValid:
+            while not isValid:
                 day = input('Enter the day: ')
                 if day.isdigit() and len(day)==2 and 1<=int(day)<=31:
-                    break
+                    isValid = True
                 else:
                     print("Input is invalid.\nDay must be two figures long and between 1 and 31.\n")
-                    continue 
+                    isValid = False
 
-            while isValid:    
+            while not isValid:    
                 month = input('\nEnter the month: ')
                 if month.isdigit and len(month)==2 and 1<=int(month)<=12:
-                    break
+                    isValid = True
                 else:
                     print('Input is invalid.\nMonth must be two figures long and betwwen 1 and 12.\n')
-                    continue
+                    isValid = False
 
-            while isValid:
+            while not isValid:
                 year = input('\nEnter the year: ')
                 if year.isdigit() and len(year)==4:
-                    break
+                    isValid = True
                 else:
                     print('Input is invalid.\nYear must be four figures long.')
-                    continue
+                    isValid = False
 
             day_of_the_week(day, month, year)
-            break
+            isValid = True
 
         except ValueError:
             print('Date provided does not exist.\n')
-            continue
+            isValid = False

@@ -14,7 +14,6 @@ def arabic_to_roman(arabic, roman_numeral_chart):
         return roman_numeral
     else:
         if 10 > arabic < 100:
-            unit = arabic%10; tens = (arabic % 100) - unit
             roman_numeral = ''
             roman_numeral = ''
         unit = arabic%10; tens = (arabic % 100) - unit;  hundreds = (arabic % 1000) - (tens + unit); 
