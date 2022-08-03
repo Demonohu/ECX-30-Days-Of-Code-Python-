@@ -27,6 +27,7 @@ if __name__ == '__main__':
                     print("Input is invalid.\nDay must be two figures long and between 1 and 31.\n")
                     isValid = False
 
+            isValid = False
             while not isValid:    
                 month = input('\nEnter the month: ')
                 if month.isdigit and len(month)==2 and 1<=int(month)<=12:
@@ -35,6 +36,7 @@ if __name__ == '__main__':
                     print('Input is invalid.\nMonth must be two figures long and betwwen 1 and 12.\n')
                     isValid = False
 
+            isValid = False
             while not isValid:
                 year = input('\nEnter the year: ')
                 if year.isdigit() and len(year)==4:
