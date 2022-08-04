@@ -26,7 +26,6 @@ if __name__ == '__main__':
                     isDayValid = True
                 else:
                     print("Input is invalid.\nDay must be two figures long and between 1 and 31.\n")
-                    isDayValid = False
 
             isMonthValid = False
             while not isMonthValid:    
@@ -35,7 +34,6 @@ if __name__ == '__main__':
                     isMonthValid = True
                 else:
                     print('Input is invalid.\nMonth must be two figures long and betwwen 1 and 12.\n')
-                    isMonthValid = False
 
             isYearValid = False
             while not isYearValid:
@@ -44,11 +42,9 @@ if __name__ == '__main__':
                     isYearValid = True
                 else:
                     print('Input is invalid.\nYear must be four figures long.')
-                    isYearValid = False
 
             day_of_the_week(day, month, year)
             isValid = True
 
         except ValueError:
             print('Date provided does not exist.\n')
-            isValid = False
