@@ -6,10 +6,15 @@
 #task 19 still apply. 
 #(See more on Western astrological signs.)
 
+<<<<<<< HEAD:Day 22/zodiac_sign.py
 import datetime
 import calendar
 from ..Day 19.DayOfTheWeek import day_of_the_week
 # from 'C:\\Users\\USER\\Documents\\ECX 30 Days Of Code\\Day 19\\DayOfTheWeek.py' 
+=======
+from ..day_19.DayOfTheWeek import day_of_the_week
+
+>>>>>>> 785bf0653289d0dc4fe9ebc48e15dc28ddd2e831:day_22/zodiac_sign.py
 
 
 def zodiac(day, month):
