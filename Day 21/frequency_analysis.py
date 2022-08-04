@@ -19,12 +19,11 @@ import string
 def frequency_1(sentence):
     frequency_dict = {}
     sentence = sentence.replace(' ', '').lower()
-    for i, j in enumerate(sentence):
-        freq = 1
-        for k in sentence[:i]+sentence[i+1:]:
-            if j == k:
-                freq += 1
-        frequency_dict[j] = freq
+    for i in sentence:
+        if i not in frequency_dict.keys():
+            frequency_dict[i] = 1
+        else:
+            frequency_dict[i] += 1
     print(frequency_dict)
 
 
@@ -32,19 +31,22 @@ def frequency_1(sentence):
 def frequency_2(sentence):
     frequency_dict = {}
     punctuations = string.punctuation
-    for idx, c in enumerate(sentence):
-        if idx < len(sentence)-1 and c in punctuations and sentence[idx+1] != ' ':
+    for c in sentence:
+        if (c in punctuations and sentence.find(c) < len(sentence)-1 and sentence[sentence.find(c)+1]==' '):
             sentence = sentence.replace(c, '')
+        if (c in punctuations) and (c == sentence[-1]):
+            sentence = sentence.replace(c, '')
+        
     sentence = sentence.lower()
     sentence = ''.join(sentence).split()
-    for i, j in enumerate(sentence):
-        freq = 1
-        for k in sentence[:i]+sentence[i+1:]:
-            if j == k:
-                freq +=1
-        frequency_dict[j] = freq
+    for i in sentence:
+        if i not in frequency_dict.keys():
+            frequency_dict[i] = 1
+        else:
+            frequency_dict[i] += 1
+
+    print(sentence)
     print(frequency_dict)
-    
 
 
 if __name__ == '__main__':
