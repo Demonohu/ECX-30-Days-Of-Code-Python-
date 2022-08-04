@@ -6,13 +6,8 @@
 #task 19 still apply. 
 #(See more on Western astrological signs.)
 
-import datetime
-import calendar
+from ..day_19.DayOfTheWeek import day_of_the_week
 
-def day_of_the_week(day, month, year):
-    the_date = datetime.datetime.strptime((day+ month+ year), '%d%m%Y').weekday()
-    week_day = calendar.day_name[the_date]
-    print(week_day)
 
 
 def zodiac(day, month):
