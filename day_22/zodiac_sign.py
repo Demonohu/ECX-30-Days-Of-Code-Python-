@@ -6,15 +6,10 @@
 #task 19 still apply. 
 #(See more on Western astrological signs.)
 
-<<<<<<< HEAD:Day 22/zodiac_sign.py
 import datetime
 import calendar
-from ..Day 19.DayOfTheWeek import day_of_the_week
-# from 'C:\\Users\\USER\\Documents\\ECX 30 Days Of Code\\Day 19\\DayOfTheWeek.py' 
-=======
 from ..day_19.DayOfTheWeek import day_of_the_week
 
->>>>>>> 785bf0653289d0dc4fe9ebc48e15dc28ddd2e831:day_22/zodiac_sign.py
 
 
 def zodiac(day, month):
@@ -54,31 +49,29 @@ if __name__ == '__main__':
     while not isValid:
         try:
             print('For the date, enter the month and day in double figures; and the year in quadruple figures.')
-            while not isValid:
+            isDayValid = False
+            while not isDayValid:
                 day = input('Enter the day: ')
                 if day.isdigit() and len(day)==2 and 1<=int(day)<=31:
-                    isValid = True
+                    isDayValid = True
                 else:
                     print("Input is invalid.\nDay must be two figures long and between 1 and 31.\n")
-                    isValid = False
 
-            isValid = False
-            while not isValid:    
+            isMonthValid = False
+            while not isMonthValid:    
                 month = input('\nEnter the month: ')
                 if month.isdigit and len(month)==2 and 1<=int(month)<=12:
-                    isValid = True
+                    isMonthValid = True
                 else:
                     print('Input is invalid.\nMonth must be two figures long and betwwen 1 and 12.\n')
-                    isValid = False
 
-            isValid = False
-            while not isValid:
+            isYearValid = False
+            while not isYearValid:
                 year = input('\nEnter the year: ')
                 if year.isdigit() and len(year)==4:
-                    isValid = True
+                    isYearValid = True
                 else:
                     print('Input is invalid.\nYear must be four figures long.')
-                    isValid = False
 
             day_of_the_week(day, month, year)
             zodiac(day, month)
@@ -86,4 +79,3 @@ if __name__ == '__main__':
 
         except ValueError:
             print('Date provided does not exist.\n')
-            isValid = False
