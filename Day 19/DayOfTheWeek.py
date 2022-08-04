@@ -19,31 +19,32 @@ if __name__ == '__main__':
     while not isValid:
         try:
             print('For the date, enter the month and day in double figures; and the year in quadruple figures.')
-            while not isValid:
+            isDayValid = False
+            while not isDayValid:
                 day = input('Enter the day: ')
                 if day.isdigit() and len(day)==2 and 1<=int(day)<=31:
-                    isValid = True
+                    isDayValid = True
                 else:
                     print("Input is invalid.\nDay must be two figures long and between 1 and 31.\n")
-                    isValid = False
+                    isDayValid = False
 
-            isValid = False
-            while not isValid:    
+            isMonthValid = False
+            while not isMonthValid:    
                 month = input('\nEnter the month: ')
                 if month.isdigit and len(month)==2 and 1<=int(month)<=12:
-                    isValid = True
+                    isMonthValid = True
                 else:
                     print('Input is invalid.\nMonth must be two figures long and betwwen 1 and 12.\n')
-                    isValid = False
+                    isMonthValid = False
 
-            isValid = False
-            while not isValid:
+            isYearValid = False
+            while not isYearValid:
                 year = input('\nEnter the year: ')
                 if year.isdigit() and len(year)==4:
-                    isValid = True
+                    isYearValid = True
                 else:
                     print('Input is invalid.\nYear must be four figures long.')
-                    isValid = False
+                    isYearValid = False
 
             day_of_the_week(day, month, year)
             isValid = True
