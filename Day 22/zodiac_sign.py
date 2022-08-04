@@ -8,11 +8,8 @@
 
 import datetime
 import calendar
-
-def day_of_the_week(day, month, year):
-    the_date = datetime.datetime.strptime((day+ month+ year), '%d%m%Y').weekday()
-    week_day = calendar.day_name[the_date]
-    print(week_day)
+from ..Day 19.DayOfTheWeek import day_of_the_week
+# from 'C:\\Users\\USER\\Documents\\ECX 30 Days Of Code\\Day 19\\DayOfTheWeek.py' 
 
 
 def zodiac(day, month):
