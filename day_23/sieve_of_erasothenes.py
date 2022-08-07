@@ -9,12 +9,12 @@
 #If there was no such number, stop. Otherwise, let p now equal this new number
 #(which is the next prime), and repeat from step 3.
 #5) When the algorithm terminates, the numbers remaining not marked in the list are all primes below n.
-#6) (See more: Sieve of Erasothenes).
-#Using the Sieve of Erasothenes (as described above), write a function that takes in an integer as input,
+#6) (See more: Sieve of Eratosthenes).
+#Using the Sieve of Eratosthenes (as described above), write a function that takes in an integer as input,
 #and returns a list containing all primes less than that input number.
 
 
-def sieve_of_erasothenes(n):
+def sieve_of_eratosthenes(n):
     list_of_integers = [i for i in range(2, n)]
     p = list_of_integers[0]
     for i in list_of_integers:
@@ -39,4 +39,4 @@ if __name__ == '__main__':
         else:
             print('\nNumber should be in digit.')
     no = int(no)
-    sieve_of_erasothenes(no)
+    sieve_of_eratosthenes(no)
