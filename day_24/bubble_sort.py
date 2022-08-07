@@ -31,6 +31,7 @@ def bubble_sort(lst, order):
                     lst[ct], lst[ct+1] = lst[ct+1], lst[ct]
 
     print(lst)
+    return lst
 
 
 if __name__ == '__main__':

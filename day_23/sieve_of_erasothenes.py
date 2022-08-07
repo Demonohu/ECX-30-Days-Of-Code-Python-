@@ -18,7 +18,7 @@ def sieve_of_eratosthenes(n):
     list_of_integers = [i for i in range(2, n)]
     p = list_of_integers[0]
     for i in list_of_integers:
-        if i%p == 0 and i != p:
+        if i % p == 0 and i != p:
             list_of_integers.remove(i)
 
     for y in list_of_integers:
