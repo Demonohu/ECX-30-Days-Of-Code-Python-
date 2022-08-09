@@ -17,7 +17,6 @@
 #purchasing airtime-except that in this case, the user is
 #prompted for a phone number instead.
 
-from multiprocessing.sharedctypes import Value
 
 
 class Bank:
