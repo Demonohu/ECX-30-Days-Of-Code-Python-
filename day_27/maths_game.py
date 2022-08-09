@@ -8,61 +8,66 @@
 #Note:
 #-Only +,-,× operations are. In the case of a division operation, the two numbers generated MUST be divisible.
 
-import random
-import time
+import random, time
 
 class Game:
-    def __init__(self, lives, points):
-        self.lives = lives
-        self.points = points
+    def __init__(self, player_name):
+        self.lives = 3
+        self.points = 0
+        self.player_name = player_name
 
     def set_algebraic_question(self):
         operators = ('+', '-', '÷', 'x')
         operator = random.choice(operators)
+        a = random.randint(1, 50)
+        b = random.randint(1, 50)
         if operator == '+':
             answer = a + b
-            question = (str(a), '+' ,str(b))
+            question = f'{a} + {b}'
         elif operator == '-':
             answer = a - b
-            question = (str(a), '-' ,str(b))
+            question = f'{a} - {b}'
         elif operator == 'x':
             answer = a * b
-            question = (str(a), 'x' , str(b))
+            question = f'{a} * {b}'
         else:
-            while a%b != 0:
-                a = random.randint(1, 50); b = random.randint(1, 50)
-            else:
-                answer = a // b
-                question = (str(a), '÷' , str(b))
+            answer = a / b
+            question = f'{a} ÷ {b}'
+        
+        question += ' = '
 
         return question, answer
 
-    def get_user_answer(self):
-        question, __ = self.set_algebraic_question()
+    def get_user_answer_within_time(self):
         t1 = time.time()
-        print(''.join(question))
         user_answer = input('Your answer: ')
         t2 = time.time()
-        enter_time = t2 - t1
-        time_left = 10 - int(enter_time)
+        time_used = t2 - t1
+        time_left = 10 - time_used
+        if time_left < 0:
+            return None, 0
         return user_answer, time_left
 
-    def check_answer(self):
-        __, answer = self.set_algebraic_question()
-        user_answer, time_left = self.get_user_answer()
-        if time_left > 0:
-            if int(user_answer) == answer:
-                self.points += time_left
-                print('Correct!', time_left, 'points added!')
+    def play(self):
+        while player.lives > 0:
+            question, correct_answer = self.set_algebraic_question()
+            print(question)
+            user_answer, time_left = self.get_user_answer_within_time()
+            if user_answer:
+                if int(user_answer) == correct_answer:
+                    self.points += int(time_left)  * 10
+                    print(f'Correct! {int(time_left)  * 10} points added!')
+                else:
+                    self.lives -= 1
+                    print('Wrong. You have ', self.lives, ' lives left.', sep='')
+                    print(correct_answer)
             else:
                 self.lives -= 1
-                print('Wrong. You have ', self.lives, ' lives left.', sep='')
-                print(answer)
-        else:
-            self.lives -= 1
-            print('Time elapsed. You have ', self.lives, ' lives left.', sep='')
-            
-            
+                print('Time elapsed. You have ', self.lives, ' lives left.', sep='')
+            print()
+
+        print('You finished with', player.points, 'points.')
+        return player.points, player.lives
 
 
 if __name__ == '__main__':
@@ -72,11 +77,10 @@ if __name__ == '__main__':
     print("* You have 10 seconds to answer each question. You lose a life if you don't answer on time.")
     print("* You lose a life if you give an incorrect answer.")
     print("* If you give the correct answer, you gain 10-the time taken for you to answer points.")
-    print('Goodluck.')
+    print('Good luck.')
     print('The game starts now!')
     print()
-    player = input('Enter your name: ')
-    player = Game(3, 0)
-    while player.lives > 0:
-        player.check_answer()
-    print('You finished with', player.points, 'points.')
+    player_name = input('Enter your name: ')
+    player = Game(player_name)
+    points, _ = player.play()
+    print(points)
