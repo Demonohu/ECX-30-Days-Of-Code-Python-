@@ -31,10 +31,11 @@ class Game:
             answer = a * b
             question = f'{a} * {b}'
         else:
+            while a % b != 0:
+                a = random.randint(1, 50)
+                b = random.randint(1, 50)
             answer = a / b
             question = f'{a} ÷ {b}'
-        
-        question += ' = '
 
         return question, answer
 
@@ -60,7 +61,7 @@ class Game:
                 else:
                     self.lives -= 1
                     print('Wrong. You have ', self.lives, ' lives left.', sep='')
-                    print(correct_answer)
+                    print('The correct answer is', correct_answer)
             else:
                 self.lives -= 1
                 print('Time elapsed. You have ', self.lives, ' lives left.', sep='')
@@ -82,5 +83,4 @@ if __name__ == '__main__':
     print()
     player_name = input('Enter your name: ')
     player = Game(player_name)
-    points, _ = player.play()
-    print(points)
+    _, _ = player.play()
