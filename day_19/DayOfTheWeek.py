@@ -15,36 +15,34 @@ def day_of_the_week(day, month, year):
     print(week_day)
 
 if __name__ == '__main__':
-    isValid = False
-    while not isValid:
-        try:
-            print('For the date, enter the month and day in double figures; and the year in quadruple figures.')
-            isDayValid = False
-            while not isDayValid:
-                day = input('Enter the day: ')
-                if day.isdigit() and len(day)==2 and 1<=int(day)<=31:
-                    isDayValid = True
-                else:
-                    print("Input is invalid.\nDay must be two figures long and between 1 and 31.\n")
+    isDayValid = False
+    isMonthValid = False
+    isYearValid = False
+    try:
+        print('For the date, enter the month and day in double figures; and the year in quadruple figures.')
+        while not isDayValid:
+            day = input('Enter the day: ')
+            if day.isdigit() and len(day)==2 and 1<=int(day)<=31:
+                isDayValid = True
+            else:
+                print("Input is invalid.\nDay must be two figures long and between 1 and 31.\n")
 
-            isMonthValid = False
-            while not isMonthValid:    
-                month = input('\nEnter the month: ')
-                if month.isdigit and len(month)==2 and 1<=int(month)<=12:
-                    isMonthValid = True
-                else:
-                    print('Input is invalid.\nMonth must be two figures long and betwwen 1 and 12.\n')
+        while not isMonthValid:    
+            month = input('\nEnter the month: ')
+            if month.isdigit and len(month)==2 and 1<=int(month)<=12:
+                isMonthValid = True
+            else:
+                print('Input is invalid.\nMonth must be two figures long and betwwen 1 and 12.\n')
 
-            isYearValid = False
-            while not isYearValid:
-                year = input('\nEnter the year: ')
-                if year.isdigit() and len(year)==4:
-                    isYearValid = True
-                else:
-                    print('Input is invalid.\nYear must be four figures long.')
+        while not isYearValid:
+            year = input('\nEnter the year: ')
+            if year.isdigit() and len(year)==4:
+                isYearValid = True
+            else:
+                print('Input is invalid.\nYear must be four figures long.')
 
-            day_of_the_week(day, month, year)
-            isValid = True
+        day_of_the_week(day, month, year)
+        isValid = True
 
-        except ValueError:
-            print('Date provided does not exist.\n')
+    except ValueError:
+        print('Date provided does not exist.\n')

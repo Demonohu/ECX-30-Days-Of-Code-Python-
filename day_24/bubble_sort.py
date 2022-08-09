@@ -31,6 +31,7 @@ def bubble_sort(lst, order):
                     lst[ct], lst[ct+1] = lst[ct+1], lst[ct]
 
     print(lst)
+    return lst
 
 
 if __name__ == '__main__':
@@ -45,7 +46,7 @@ if __name__ == '__main__':
     print()
     isListValid = False
     while not isListValid:
-        lst = input('Enter a list of alphabets. Seperate each letter with a space. e.g; (a b c d): ')
+        lst = input('Enter a list of alphabets. Separate each letter with a space. e.g; (a b c d): ')
         unwanted = '' 
         for i in range(1, len(lst), 2):
             unwanted += lst[i]
@@ -56,7 +57,7 @@ if __name__ == '__main__':
             else:
                 print('\nEnter letters of the alphabet only.')
         else:
-            print('\nEach alphabet must be seperated with a space.')
+            print('\nEach alphabet must be separated with a space.')
         lst = list(lst)
 
     bubble_sort(lst, order)
