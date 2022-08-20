@@ -7,11 +7,11 @@
 
 def GPA_calculator(grades):
     grade_points = {'A':5, 'B':4, 'C':3, 'D':4, 'E':1, 'F':0}
-    den=0; num = 0
+    course_count=0; total = 0
     for course in grades:
-        den += int(course[1])
-        num += (int(course[1])*grade_points.get(course[0].upper()))
-    GPA = num/den
+        course_count += int(course[1])
+        total += (int(course[1])*grade_points.get(course[0].upper()))
+    GPA = total/course_count
     return round(GPA, 2)
 
 
